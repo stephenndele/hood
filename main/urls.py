@@ -1,4 +1,4 @@
-from .views import home
+from . import views
 from django.urls import path
 
 
