@@ -1,9 +1,9 @@
 {% extends 'main/base.html' %}
 
-{% block content %}
-{% extends 'main/base.html' %}
+
 {% block content %}
 <div class="container-fluid">
+    <h1 class="text-center">Neighborhoods</h1>
     <br>
     <div class="card">
         <div class="card-body">
@@ -20,7 +20,7 @@
                             <div class="text-center">
                                 <i class="text-center">Occupants: {{ hood.occupants}}</i>
                             </div>
-                            <a href="{% url 'main:details' project.id %}">Read More</a>
+                            <button><a href="">Join the Hood</a></button>
                         </div>
                     </div>
                 </div>
@@ -35,4 +35,3 @@
 
 
 
-{% endblock %}
