@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import Hood
+from .forms import *
+
+
 
 # Create your views here.
 
@@ -29,5 +32,5 @@ def add_hood(request):
             data.save()
             return redirect("main:home")
     else:
-        form = ProjectForm()
-    return render(request, 'main/addhoods.html', {'form': form, "controller":"Add Hoods"}) 
+        form = HoodForm()
+    return render(request, 'main/addhoods.html', {'form': form, "controller":"Add Hood"}) 
