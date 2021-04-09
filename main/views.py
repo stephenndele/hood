@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models import Hood
+from .models import Hood
 
 # Create your views here.
 
