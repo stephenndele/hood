@@ -9,7 +9,7 @@
 <body style="background-image: url('https://images.unsplash.com/photo-1574120582683-1adf79c5dfd5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80')" style="background-repeat: no-repeat">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Area Code</a>
+        <a class="navbar-brand" href="{% url 'main:home' %}">Area Code</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'main:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -27,14 +27,14 @@
                 Account
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Register</a>
-                <a class="dropdown-item" href="#">Login</a>
+                <a class="dropdown-item" href="{% url 'accounts:register' %}">Register</a>
+                <a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+              <a class="nav-link" href="#">{{user.username}}</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
