@@ -2,13 +2,15 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Hood, Profile
+from django.contrib import messages
+
 
 
 
 class HoodForm(forms.ModelForm):
     class Meta:
         model = Hood
-        fields = ('name', 'location', 'occupants', 'image')
+        fields = ('name', 'location', 'occupants', 'image', 'admin')
 
         widgets = {
             'image': forms.TextInput(attrs={'placeholder': 'Add image url.... '}),
