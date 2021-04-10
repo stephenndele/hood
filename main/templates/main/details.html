@@ -50,19 +50,20 @@
     </div>
     <div class="col-md-6">
         
-        <div class="card" style="background-color: grey">
+        <div class="card" style="background-color: rgb(211, 183, 183)">
             <div class="card-body">
-                <h3 class="text-center">Hood Busineses</h3>
+                {% for business in business %}
+                <h3 class="text-center"> {{ business.hood}} Busineses</h3>
                 <button><a href="{% url 'main:business' hood.id %}">Add Business</a></button>
                <ul>
-                   {% for business in business %}
-                   <li>Business Owner: {{ business.user.user.username}}</li>
-                   <li>Business Name: {{ business.name }}</li>
+                   
+                   
+                   <h4>Business Name: {{ business.name }}</h4>
                    <li>Business Description: {{ business.description}}</li>
                     <li> Business Email: {{ business.email }}</li>
-                    <li> Hood: {{ business.hood}}</li>
+                    <li>Business Owner: {{ business.user.user.username}}</li>
                    
-                   {% endfor %}
+                {% endfor %}
                </ul> 
             </div>
         </div>
