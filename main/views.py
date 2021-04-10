@@ -76,3 +76,18 @@ def userpage(request,):
 	profile_form = ProfileForm(instance=request.user.profile)
 	return render(request = request, template_name ="main/user.html", context = {"user":request.user, 
 		"user_form": user_form, "profile_form": profile_form })
+
+
+def create_post(request, hood_id):
+    hood = Hood.objects.get(id=hood_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.hood = hood
+            post.user = request.user.profile
+            post.save()
+            # return redirect('single-hood', hood.id)
+    else:
+        form = PostForm()
+    return render(request, 'post.html', {'form': form})
