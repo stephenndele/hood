@@ -11,7 +11,6 @@ class HoodForm(forms.ModelForm):
     class Meta:
         model = Hood
         fields = ('name', 'location', 'occupants', 'image', 'admin','health_tell', 'police_number' ) 
-    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='hood_post')
 
         widgets = {
             'image': forms.TextInput(attrs={'placeholder': 'Add image url.... '}),
