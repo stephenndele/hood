@@ -57,3 +57,22 @@ def add_hood(request):
 #     }
 
 #     return render( request,'main/details.html', context)
+
+
+def userpage(request,):
+	if request.method == "POST":
+		user_form = UserForm(request.POST, instance=request.user)
+		profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+		if user_form.is_valid():
+		    user_form.save()
+		    messages.success(request,('Your profile was successfully updated!'))
+		elif profile_form.is_valid():
+		    profile_form.save()
+		    messages.success(request,('Your Projects were successfully updated!'))
+		else:
+		    messages.error(request,('Unable to complete request'))
+		# return redirect ("main:userpage")
+	user_form = UserForm(instance=request.user)
+	profile_form = ProfileForm(instance=request.user.profile)
+	return render(request = request, template_name ="main/user.html", context = {"user":request.user, 
+		"user_form": user_form, "profile_form": profile_form })
