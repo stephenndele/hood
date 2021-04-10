@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Hood
+from .models import Hood, Business, Post
 from .forms import *
 
 
@@ -37,8 +37,8 @@ def add_hood(request):
 
 def details(request, id):
     hood = Hood.objects.get(id=id)
-    posts = Post.objects.filter(hood=id).order_by('-comment')
-    bussines = Bussines.objects.filter()
+    posts = Post.objects.filter(hood=id).order_by('-post')
+    business = Business.objects.filter()
     
     # average1 = reviews.aggregate(Avg("design_rating"))["design_rating__avg"]
     
@@ -48,10 +48,9 @@ def details(request, id):
     # average = round(average, 2)
 
     context = {
-        "project": project,
-        "reviews": reviews,
+        "hood": hood,
         "posts":posts,
-        "bussines":bussines
+        "business":business
         # "average": average,
 
     }
@@ -90,4 +89,4 @@ def create_post(request, hood_id):
             # return redirect('single-hood', hood.id)
     else:
         form = PostForm()
-    return render(request, 'post.html', {'form': form})
+    return render(request, 'main/post.html', {'form': form})

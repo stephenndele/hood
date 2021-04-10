@@ -21,6 +21,8 @@
                                 <i class="text-center">Occupants: {{ hood.occupants}}</i>
                             </div>
                             <button><a href="">Join the Hood</a></button>
+                            <button><a href="{% url 'main:details' hood.id %}">See Hood Details</a></button>
+
                         </div>
                     </div>
                 </div>

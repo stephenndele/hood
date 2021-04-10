@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{project.image}}" alt="{{project.name}}" class="img-fluid" width="80%">
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-center">
+                    {{hood.name}}
+                </h3>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="text-center">Hood Posts</h3>
+            <form action="{% url 'main:post' hood.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {% for form in form%}
+                {% bootstrap_form form %}
+                {% endfor %}
+
+                <input type="submit" class="btn btn-danger" value="Save Post">
+            </form>
+        </div>
+    </div>
+    <div class="card" style="background-color: grey">
+        <div class="card-body">
+            <h3 class="text-center">Posts</h3>
+           <ul>
+               {% for post in posts %}
+               <li>Posted by: {{ post.user.user.username}}</li>
+               <li>Title: {{ post.title}} </li>
+                <li> Post: {{ post.post}}</li>
+                <li> Post Date: {{ post.date}}</li>
+                <li> Hood: {{ post.hood}}</li>
+               
+               {% endfor %}
+           </ul> 
+        </div>
+    </div>
+    
+</div>
+
+
+{% endblock %}
