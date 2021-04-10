@@ -90,3 +90,18 @@ def create_post(request, hood_id):
     else:
         form = PostForm()
     return render(request, 'main/post.html', {'form': form})
+
+
+def create_busines(request, hood_id):
+    hood = Hood.objects.get(id=hood_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.hood = hood
+            post.user = request.user.profile
+            post.save()
+            return redirect('main:details', hood.id)
+    else:
+        form = PostForm()
+    return render(request, 'main/business.html', {'form': form})
