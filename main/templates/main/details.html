@@ -23,29 +23,51 @@
     </div>
     </div>
     <br>
-    <div class="card">
-        <div class="card-body">
-            <h3 class="text-center">Hood Posts</h3>
-            <button><a href="{% url 'main:post' hood.id %}">Add Post</a></button>
-
-        </div>
-    </div>
-    <div class="card" style="background-color: grey">
-        <div class="card-body">
-            <h3 class="text-center">Posts</h3>
-           <ul>
-               {% for post in posts %}
-               <li>Posted by: {{ post.user.user.username}}</li>
-               <li>Title: {{ post.title}} </li>
-                <li> Post: {{ post.post}}</li>
-                <li> Post Date: {{ post.date}}</li>
-                <li> Hood: {{ post.hood}}</li>
-               
-               {% endfor %}
-           </ul> 
-        </div>
-    </div>
+  
     
+    
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card" style="background-color: grey">
+            <div class="card-body">
+                <h3 class="text-center">Hood Posts</h3>
+                <button><a href="{% url 'main:post' hood.id %}">Add Post</a></button>
+               <ul>
+                   {% for post in posts %}
+                   <li>Posted by: {{ post.user.user.username}}</li>
+                   <li>Title: {{ post.title}} </li>
+                    <li> Post: {{ post.post}}</li>
+                    <li> Post Date: {{ post.date}}</li>
+                    <li> Hood: {{ post.hood}}</li>
+                   
+                   {% endfor %}
+               </ul> 
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-6">
+        
+        <div class="card" style="background-color: grey">
+            <div class="card-body">
+                <h3 class="text-center">Hood Busineses</h3>
+                <button><a href="{% url 'main:business' hood.id %}">Add Business</a></button>
+               <ul>
+                   {% for business in business %}
+                   <li>Business Owner: {{ business.user.user.username}}</li>
+                   <li>Business Name: {{ business.name }}</li>
+                   <li>Business Description: {{ business.description}}</li>
+                    <li> Business Email: {{ business.email }}</li>
+                    <li> Hood: {{ business.hood}}</li>
+                   
+                   {% endfor %}
+               </ul> 
+            </div>
+        </div>
+        
+    </div>
 </div>
 
 

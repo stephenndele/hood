@@ -38,6 +38,7 @@ class PostForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields = ('user','name', 'description','image','email','hood', )
+        fields = ('user','name', 'description','image','email','hood' )
 
 
+    
