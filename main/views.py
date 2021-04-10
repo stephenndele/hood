@@ -86,7 +86,7 @@ def create_post(request, hood_id):
             post.hood = hood
             post.user = request.user.profile
             post.save()
-            # return redirect('single-hood', hood.id)
+            return redirect('main:details', hood.id)
     else:
         form = PostForm()
     return render(request, 'main/post.html', {'form': form})
