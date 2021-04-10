@@ -92,7 +92,7 @@ def create_post(request, hood_id):
     return render(request, 'main/post.html', {'form': form})
 
 
-def create_busines(request, hood_id):
+def create_business(request, hood_id):
     hood = Hood.objects.get(id=hood_id)
     if request.method == 'POST':
         form = PostForm(request.POST)

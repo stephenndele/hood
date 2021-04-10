@@ -50,6 +50,8 @@ class Business(models.Model):
     name = models.CharField(max_length=120)
     email = models.EmailField(max_length=254)
     description = models.TextField(blank=True)
+    image = models.URLField(
+        default='default.jpg')
     hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='business')
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
 
