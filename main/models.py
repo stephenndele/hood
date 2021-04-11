@@ -11,7 +11,7 @@ class Hood(models.Model):
     location = models.CharField(max_length=1000)
     occupants = models.CharField(max_length=500)
     image = models.URLField(
-        default='default.jpg')
+        default='default.png')
     admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='hoods')
     health_tell = models.IntegerField(null=True, blank=True)
     police_number = models.IntegerField(null=True, blank=True)
@@ -64,7 +64,7 @@ class Business(models.Model):
     email = models.EmailField(max_length=254)
     description = models.TextField(blank=True)
     image = models.URLField(
-        default='default.jpg')
+        default='default.png')
     hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='business')
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
 
