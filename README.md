@@ -11,16 +11,14 @@ This project allows users to post their projects for other users to rate accordi
 ## Screenshots 
 ##### Home page
  
- ![Alt text](/media/home.png?raw=true "Main Page")
+ ![Alt text](/media/hoodhome.png?raw=true "Main Page")
 
- ##### Hoods page
+ ##### Single Hood page
 
- ![Alt text](/media/projects.png?raw=true "Main Page")
+ ![Alt text](/media/hood.png?raw=true "Main Page")
 
 
- ###### Single hood
 
- ![Alt text](/media/rating.png?raw=true "Main Page")
 
  
 ## User Story  
