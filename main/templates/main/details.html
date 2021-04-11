@@ -20,6 +20,8 @@
                 <p>Police Helpline Number: {{hood.police_number}}</p>
                 <br>
                 <p>Occupants: {{hood.occupants}} members</p>
+                <br>
+                <p>Hood Admin: {{hood.admin|title}}</p>
                 <a href="{% url 'main:edit_hoods' hood.id%}" class="btn btn-info"> Update Hood</a>
 
                 
