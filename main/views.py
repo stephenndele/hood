@@ -62,7 +62,7 @@ def details(request, id):
     posts = Post.objects.filter(hood=id).order_by('-post')
     business = Business.objects.filter()
     
-    # average1 = reviews.aggregate(Avg("design_rating"))["design_rating__avg"]
+    # Occupants = occupants.aggregate(Avg("design_rating"))["design_rating__avg"]
     
 
     # if average == None:

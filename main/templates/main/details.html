@@ -16,8 +16,10 @@
                   Hey {{ user.username|title }}, Welcome to  {{hood.name}} Hood
                 </h3>
                 <p>Health Telephone Number: {{hood.health_tell}}</p>
+                <br>
                 <p>Police Helpline Number: {{hood.police_number}}</p>
-
+                <br>
+                <p>Occupants: {{hood.occupants}} members</p>
                 <a href="{% url 'main:edit_hoods' hood.id%}" class="btn btn-info"> Update Hood</a>
 
                 
@@ -70,6 +72,7 @@
                    <li>Business Description: {{ biz.description}}</li>
                     <li> Business Email: {{ biz.email }}</li>
                     <li>Business Owner: {{ biz.user.user.username}}</li>
+                    <li>Business Location: {{ biz.hood }}</li>
                    
                 {% endfor %}
                </ul> 
