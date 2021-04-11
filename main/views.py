@@ -94,7 +94,7 @@ def userpage(request):
             user_form.save()
             profile_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('main:profile')
+            return redirect('main:userpage')
 
     else:
         user_form = UserUpdateForm(instance=request.user)
