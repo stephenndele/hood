@@ -60,7 +60,7 @@ def delete_hoods(request, id):
 def details(request, id):
     hood = Hood.objects.get(id=id)
     posts = Post.objects.filter(hood=id).order_by('-post')
-    business = Business.objects.filter()
+    business = Business.objects.filter(hood=id)
     
     # Occupants = occupants.aggregate(Avg("design_rating"))["design_rating__avg"]
     
@@ -132,6 +132,7 @@ def create_post(request, hood_id):
 
 
 def create_business(request, hood_id):
+    query = request.GET.get('name') 
     hood = Hood.objects.get(id=hood_id)
     if request.method == 'POST':
         form = BusinessForm(request.POST)
@@ -161,17 +162,17 @@ def leave_hood(request, id):
 
 
 
-def search_business(request):
-    if request.method == 'GET':
-        name = request.GET.get("title")
-        results = Business.objects.filter(name__icontains=name).all()
-        print(results)
-        message = f'name'
-        params = {
-            'results': results,
-            'message': message
-        }
-        return render(request, 'results.html', params)
-    else:
-        message = "You haven't searched for any image category"
-    return render(request, "results.html")
+# def search_business(request):
+#     if request.method == 'GET':
+#         name = request.GET.get("title")
+#         results = Business.objects.filter(name__icontains=name).all()
+#         print(results)
+#         message = f'name'
+#         params = {
+#             'results': results,
+#             'message': message
+#         }
+#         return render(request, 'results.html', params)
+#     else:
+#         message = "You haven't searched for any image category"
+#     return render(request, "results.html")
