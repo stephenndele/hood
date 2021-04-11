@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Hood, Business, Post
 from .forms import *
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -21,7 +23,7 @@ def home(request):
 
     return render(request,'main/index.html', context)
 
-
+@login_required()
 def add_hood(request):
     if request.method == 'POST':
         form = HoodForm(request.POST or None, request.FILES,)
@@ -35,7 +37,7 @@ def add_hood(request):
         form = HoodForm()
     return render(request, 'main/addhoods.html', {'form': form, "controller":"Add Hood"})
 
-
+@login_required()
 def edit_hoods(request, id):
     hood = Hood.objects.get(id=id)
 
@@ -49,14 +51,14 @@ def edit_hoods(request, id):
     else:
         form = HoodForm(instance=hood)
     return render(request,'main/addhoods.html', {"form": form, "controller":"Update Hood"})
-
+@login_required()
 def delete_hoods(request, id):
 
     hood = Hood.objects.get(id=id)
     hood.delete()
     return redirect("main:home")
 
-
+@login_required()
 def details(request, id):
     hood = Hood.objects.get(id=id)
     posts = Post.objects.filter(hood=id).order_by('-post')
@@ -65,21 +67,17 @@ def details(request, id):
     # Occupants = occupants.aggregate(Avg("design_rating"))["design_rating__avg"]
     
 
-    # if average == None:
-    #     average = 0
-    # average = round(average, 2)
-
+   
     context = {
         "hood": hood,
         "posts":posts,
         "business":business
-        # "average": average,
 
     }
 
     return render( request,'main/details.html', context)
 
-
+@login_required()
 def userpage(request):
     '''
     A function for creating the user profile and updating
@@ -115,7 +113,7 @@ def userpage(request):
 
 
 
-
+@login_required()
 def create_post(request, hood_id):
     hood = Hood.objects.get(id=hood_id)
     if request.method == 'POST':
@@ -130,7 +128,7 @@ def create_post(request, hood_id):
         form = PostForm()
     return render(request, 'main/post.html', {'form': form})
 
-
+@login_required()
 def create_business(request, hood_id):
     query = request.GET.get('name') 
     hood = Hood.objects.get(id=hood_id)
@@ -146,7 +144,7 @@ def create_business(request, hood_id):
         form = BusinessForm()
     return render(request, 'main/business.html', {'form': form})
 
-
+@login_required()
 def join_hood(request, id):
     hood = get_object_or_404(Hood, id=id)
     request.user.profile.hood = hood
