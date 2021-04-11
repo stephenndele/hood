@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import HoodSerializer
+from .serializer import HoodSerializer, ViewHoodSerializer
 
 
 # Create your views here.
@@ -185,3 +185,13 @@ class HoodList(APIView):
         all_hood = Hood.objects.all()
         serializers = HoodSerializer(all_hood, many=True)
         return Response(serializers.data)
+
+
+class ViewHoodList(APIView):
+    def get(self, request, format=None):
+        all_hood = Hood.objects.all()
+        serializers = ViewHoodSerializer(all_hood, many=True)
+        return Response(serializers.data)
+
+
+        
