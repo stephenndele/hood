@@ -59,7 +59,6 @@
         
     </div>
     <div class="col-md-6">
-        
         <div class="card" style="background-color: rgb(211, 183, 183)">
             <div class="card-body">
                 <h3 class="text-center"> {{ hood.name}} Busineses</h3>
@@ -67,6 +66,7 @@
                <ul>
                    
                 {% for biz in business %}
+                <img  src="{{ biz.image }}" class="img-thumbnail" alt="Cinque Terre" width="260" height="236">
                 <br>
                    <h4>Business Name: {{ biz.name }}</h4>
                    <li>Business Description: {{ biz.description}}</li>
