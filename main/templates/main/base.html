@@ -25,23 +25,31 @@
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'main:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'main:add_hood' %}">Add Hood</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Account
+                
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'accounts:register' %}">Register</a>
-                <a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a>
+                <a class="btn btn-outline-primary" href="{% url 'main:userpage' %}">{{user.username|title}} Profile</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
               </div>
             </li>
+            {%else%}
             <li class="nav-item">
-              <a class="btn btn-outline-primary" href="{% url 'main:userpage' %}">{{user.username|title}} Profile</a>
+                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+             
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+             
+            </li>
+            {% endif %}
           </ul>
           <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'main:home'}">
             <input class="form-control mr-sm-2" type="search" placeholder="Search for Business" aria-label="Search">
