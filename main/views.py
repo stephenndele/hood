@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Hood, Business, Post
 from .forms import *
 
@@ -144,3 +144,10 @@ def create_business(request, hood_id):
     else:
         form = BusinessForm()
     return render(request, 'main/business.html', {'form': form})
+
+
+def join_hood(request, id):
+    hood = get_object_or_404(Hood, id=id)
+    request.user.profile.hood = hood
+    request.user.profile.save()
+    return redirect('main:details', hood.id)

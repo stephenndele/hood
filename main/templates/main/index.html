@@ -20,7 +20,10 @@
                             <div class="text-center">
                                 <i class="text-center">Occupants: {{ hood.occupants}}</i>
                             </div>
-                            <a href="" button class="btn btn-primary">Join the Hood</a>
+
+                            
+                            <a href="{% url 'main:join-hood' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
+
                             <a href="{% url 'main:details' hood.id %}" button class="btn btn-primary">See Hood Details</a>
 
                         </div>
