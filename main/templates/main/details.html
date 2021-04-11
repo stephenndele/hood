@@ -32,15 +32,17 @@
     <div class="col-md-6">
         <div class="card" style="background-color: grey">
             <div class="card-body">
-                <h3 class="text-center">Hood Posts</h3>
+                    
+                <h3 class="text-center">{{hood.name}} Hood Posts</h3>
                 <button><a href="{% url 'main:post' hood.id %}">Add Post</a></button>
                <ul>
-                   {% for post in posts %}
+                {% for post in posts %}
+                   <br>
                    <li>Posted by: {{ post.user.user.username}}</li>
                    <li>Title: {{ post.title}} </li>
                     <li> Post: {{ post.post}}</li>
                     <li> Post Date: {{ post.date}}</li>
-                    <li> Hood: {{ post.hood}}</li>
+                    <li>Hood: {{ post.hood}}</li>
                    
                    {% endfor %}
                </ul> 
@@ -52,12 +54,12 @@
         
         <div class="card" style="background-color: rgb(211, 183, 183)">
             <div class="card-body">
-                {% for business in business %}
-                <h3 class="text-center"> {{ business.hood}} Busineses</h3>
+                <h3 class="text-center"> {{ hood.name}} Busineses</h3>
                 <button><a href="{% url 'main:business' hood.id %}">Add Business</a></button>
                <ul>
                    
-                   
+                {% for business in business %}
+                <br>
                    <h4>Business Name: {{ business.name }}</h4>
                    <li>Business Description: {{ business.description}}</li>
                     <li> Business Email: {{ business.email }}</li>
