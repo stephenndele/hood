@@ -1,18 +1,24 @@
 {% include "main/messages.html" %}
 {% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Bootstrap CSS -->
+{% block styles %}
+{% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'js/main.js' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% endblock %}
     <title>The Hood</title>
 </head>
-<body style="background-image: url('https://images.unsplash.com/photo-1574120582683-1adf79c5dfd5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80')" style="background-repeat: no-repeat">
+<body style="background-image: url('https://images.unsplash.com/photo-1574120582683-1adf79c5dfd5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80')" style="background-repeat: no-repeat" style="font-family: 'Zilla Slab', serif;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'main:home' %}">Area Code</a>
@@ -51,7 +57,7 @@
             </li>
             {% endif %}
           </ul>
-          <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'main:home'}">
+          <form class="form-inline my-2 my-lg-0" method="GET" action="/">
             <input class="form-control mr-sm-2" type="search" placeholder="Search for Business" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>
           </form>
