@@ -151,6 +151,7 @@ def join_hood(request, id):
     hood = get_object_or_404(Hood, id=id)
     request.user.profile.hood = hood
     request.user.profile.save()
+    messages.success(request, "Welcome to Your Hood!")
     return redirect('main:details', hood.id)
 
 
@@ -158,6 +159,7 @@ def leave_hood(request, id):
     hood = get_object_or_404(Hood, id=id)
     request.user.profile.hood = None
     request.user.profile.save()
+    messages.success(request, "Bye see you again")
     return redirect("main:home")
 
 
