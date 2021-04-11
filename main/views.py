@@ -157,4 +157,4 @@ def leave_hood(request, id):
     hood = get_object_or_404(Hood, id=id)
     request.user.profile.hood = None
     request.user.profile.save()
-    return redirect('"main:home")
+    return redirect("main:home")
