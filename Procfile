@@ -1,1 +1,1 @@
-web: gunicorn myhood.wsgi
+web: gunicorn myhood.wsgi.py
