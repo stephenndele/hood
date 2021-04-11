@@ -33,7 +33,29 @@ def add_hood(request):
             return redirect("main:home")
     else:
         form = HoodForm()
-    return render(request, 'main/addhoods.html', {'form': form, "controller":"Add Hood"}) 
+    return render(request, 'main/addhoods.html', {'form': form, "controller":"Add Hood"})
+
+
+def edit_hoods(request, id):
+    hood = Hood.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = HoodForm(request.POST or None, instance=hood)
+
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.save()
+            return redirect("main:details", id)
+    else:
+        form = HoodForm(instance=hood)
+    return render(request,'main/addhoods.html', {"form": form, "controller":"Update Hood"})
+
+def delete_hoods(request, id):
+
+    hood = Hood.objects.get(id=id)
+    hood.delete()
+    return redirect("main:home")
+
 
 def details(request, id):
     hood = Hood.objects.get(id=id)
@@ -56,28 +78,6 @@ def details(request, id):
     }
 
     return render( request,'main/details.html', context)
-
-
-# def userpage(request,):
-# 	if request.method == "POST":
-# 		user_form = UserForm(request.POST, instance=request.user)
-# 		profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-# 		if user_form.is_valid():
-# 		    user_form.save()
-# 		    messages.success(request,('Your profile was successfully updated!'))
-# 		elif profile_form.is_valid():
-# 		    profile_form.save()
-# 		    messages.success(request,('Your Projects were successfully updated!'))
-# 		else:
-# 		    messages.error(request,('Unable to complete request'))
-# 		return redirect ("main:userpage")
-# 	user_form = UserForm(instance=request.user)
-# 	profile_form = ProfileForm(instance=request.user.profile)
-    
-# 	return render(request = request, template_name ="main/user.html", context = {"user":request.user, 
-# 		"user_form": user_form, "profile_form": profile_form })
-
-
 
 
 def userpage(request):

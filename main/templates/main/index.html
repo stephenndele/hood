@@ -12,7 +12,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="{{hood.image}}" alt="" class="img-fluid" width="60%">
+                            <img src="{{hood.image}}" alt="" class="img-fluid"  width="260" height="236">
                             <h3 class="text-center">{{ hood.name }}</h3>
                             <div class="text-center">
                                 <i class="text-center">Location: {{ hood.location}}</i>
@@ -20,8 +20,8 @@
                             <div class="text-center">
                                 <i class="text-center">Occupants: {{ hood.occupants}}</i>
                             </div>
-                            <button><a href="">Join the Hood</a></button>
-                            <button><a href="{% url 'main:details' hood.id %}">See Hood Details</a></button>
+                            <a href="" button class="btn btn-primary">Join the Hood</a>
+                            <a href="{% url 'main:details' hood.id %}" button class="btn btn-primary">See Hood Details</a>
 
                         </div>
                     </div>
