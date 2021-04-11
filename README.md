@@ -77,10 +77,10 @@ Open the application on your browser `127.0.0.1:8000`.
  ### Api Endpoints
 ##### GET /api/v1/hoods
 
- * http://127.0.0.1:8000/api/hood/
+ * https://area-code.herokuapp.com/api/hood/
 
  ##### GET /api/v1/view_hood
- * http://127.0.0.1:8000/api/view_hood/
+ * https://area-code.herokuapp.com/api/view_hood/
  * 
  
  
