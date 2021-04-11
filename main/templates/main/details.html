@@ -18,10 +18,10 @@
                 <p>Helath Telephone Number: {{hood.health_tell}}</p>
                 <p>Police Helpline Number: {{hood.police_number}}</p>
 
-                <a href="{% url 'main:edit_hoods' hood.id%}" class="btn btn-warning"> Update Hood</a>
+                <a href="{% url 'main:edit_hoods' hood.id%}" class="btn btn-info"> Update Hood</a>
 
-                <br>
-                <a href="{% url 'main:delete_hoods' hood.id%}" class="btn btn-warning"> Delete Hood</a>
+                
+                <a href="{% url 'main:delete_hoods' hood.id%}" class="btn btn-danger"> Delete Hood</a>
             </div>
         </div>
     </div>
