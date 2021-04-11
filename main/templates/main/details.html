@@ -15,7 +15,7 @@
                 <h3 class="text-center">
                   Hey {{ user.username|title }}, Welcome to  {{hood.name}} Hood
                 </h3>
-                <p>Helath Telephone Number: {{hood.health_tell}}</p>
+                <p>Health Telephone Number: {{hood.health_tell}}</p>
                 <p>Police Helpline Number: {{hood.police_number}}</p>
 
                 <a href="{% url 'main:edit_hoods' hood.id%}" class="btn btn-info"> Update Hood</a>
@@ -64,12 +64,12 @@
                 <button><a href="{% url 'main:business' hood.id %}">Add Business</a></button>
                <ul>
                    
-                {% for business in business %}
+                {% for biz in business %}
                 <br>
-                   <h4>Business Name: {{ business.name }}</h4>
-                   <li>Business Description: {{ business.description}}</li>
-                    <li> Business Email: {{ business.email }}</li>
-                    <li>Business Owner: {{ business.user.user.username}}</li>
+                   <h4>Business Name: {{ biz.name }}</h4>
+                   <li>Business Description: {{ biz.description}}</li>
+                    <li> Business Email: {{ biz.email }}</li>
+                    <li>Business Owner: {{ biz.user.user.username}}</li>
                    
                 {% endfor %}
                </ul> 
