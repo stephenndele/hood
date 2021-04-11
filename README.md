@@ -24,13 +24,17 @@ This project allows users to post their projects for other users to rate accordi
 
  
 ## User Story  
-  
-* A user can view posted projects and their details.  
-* A user can post a project to be rated/reviewed. 
-* A user can rate/ review other users' projects.  
-* Search for projects.  
-* View projects overall score.
-* A user can view their profile page.  
+### as a User am able to:
+* Register in the app be able to sign in  
+* Set up a profile about me and a general location and my  neighborhood name.
+* Find a list of different businesses in my neighborhood.
+* Find Contact Information for the health department, fire department, and Police authorities near my neighborhood.
+* Create Posts that will be visible to everyone in my neighborhood.
+* Change My neighborhood when I decide to move out.
+* Only view details of a single neighborhood.
+* View all available neighborhoods.
+* Creates neighborhood
+
   
 
   
@@ -74,8 +78,8 @@ Open the application on your browser `127.0.0.1:8000`.
   
  ### Api Endpoints
  *
- * https://projects-awwards.herokuapp.com/api/project/
- * https://projects-awwards.herokuapp.com/api/profile/
+ * 
+ * 
  
  
 ## Technology used  
