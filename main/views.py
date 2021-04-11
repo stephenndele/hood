@@ -3,7 +3,9 @@ from .models import Hood, Business, Post
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
-
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import HoodSerializer
 
 
 # Create your views here.
@@ -176,3 +178,10 @@ def leave_hood(request, id):
 #     else:
 #         message = "You haven't searched for any image category"
 #     return render(request, "results.html")
+
+
+class HoodList(APIView):
+    def get(self, request, format=None):
+        all_hood = Hood.objects.all()
+        serializers = HoodSerializer(all_hood, many=True)
+        return Response(serializers.data)
