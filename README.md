@@ -4,7 +4,7 @@
 >[Stephen-Ndele](https://github.com/stephenndele)  
   
 # Description  
-This project allows users to post their projects for other users to rate according to design, usability and content 
+Application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
 ##  Live Link  
  Click [View Site](https://area-code.herokuapp.com/)  to visit the site
   
