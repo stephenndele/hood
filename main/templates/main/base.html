@@ -20,8 +20,8 @@
 </head>
 <body style="background-image: url('https://images.unsplash.com/photo-1574120582683-1adf79c5dfd5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80')" style="background-repeat: no-repeat" style="font-family: 'Zilla Slab', serif;">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'main:home' %}">Area Code</a>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3955a1;" style="color:white">
+        <a class="navbar-brand text-white" href="{% url 'main:home' %}">Area Code</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,37 +29,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'main:home' %}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link text-white" href="{% url 'main:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'main:add_hood' %}">Add Hood</a>
+              <a class="nav-link text-white" href="{% url 'main:add_hood' %}">Add Hood</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Account
                 
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="btn btn-outline-primary" href="{% url 'main:userpage' %}">{{user.username|title}} Profile</a>
+                <a class="btn btn-outline-primary " href="{% url 'main:userpage' %}">{{user.username|title}} Profile</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
+                <a class="dropdown-item " href="{% url 'accounts:logout' %}">Logout</a>
               </div>
             </li>
             {%else%}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+                <a class="nav-link text-white" href="{% url 'accounts:login' %}">Login</a>
              
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+              <a class="nav-link text-white" href="{% url 'accounts:register' %}">Register</a>
              
             </li>
             {% endif %}
           </ul>
           <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'main:search' %}" data-method=>
             <input class="form-control mr-sm-2" type="search" placeholder="Search for Business" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search </button>
           </form>
         </div>
       </nav>
