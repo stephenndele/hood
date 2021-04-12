@@ -97,12 +97,10 @@ def userpage(request):
         profile_form = ProfileUpdateForm(instance=request.user.profile)
 
 
-    # profile = request.user.profile.hood.objects.all()
 
     context = {
         'user_form': user_form,
         'profile_form': profile_form,
-        # 'profile': profile
     }
 
     return render(request, 'main/user.html', context)

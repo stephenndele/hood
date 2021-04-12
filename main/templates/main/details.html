@@ -43,7 +43,7 @@
         <div class="card" style="background-color: grey">
             <div class="card-body">
                     
-                <h3 class="text-center">{{hood.name}} Hood Posts</h3>
+                <h3 class="text-center">{{hood.name}} Hood Posts/Notices</h3>
                 <button><a href="{% url 'main:post' hood.id %}">Add Post</a></button>
                <ul>
                 {% for post in posts %}
