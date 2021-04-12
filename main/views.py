@@ -163,7 +163,7 @@ def leave_hood(request, id):
     return redirect("main:home")
 
 
-
+@login_required()
 def search_business(request):
     
     query = request.GET.get("name")
@@ -172,17 +172,37 @@ def search_business(request):
     if query:
         results = Business.objects.filter(name__icontains=query)
 
-        print(results)
+    else:
+        results = Business.objects.all()
+
         message = f'name'
         params = {
             'results': results,
             'message': message
         }
-        return render(request, 'results.html', params)
-    else:
-        message = "You haven't searched for any "
-    return render(request, "main/results.html")
+    return render(request, 'main/results.html', params)
 
+
+        
+    # else:
+    #     message = "You haven't searched for any "
+    # return render(request, "main/results.html")
+
+
+# def home(request):
+#     query = request.GET.get('title')    
+    
+#     allHoods = None
+#     if query:
+#         allHoods = Hood.objects.filter(title__icontains=query)
+#     else:
+
+#         allHoods = Hood.objects.all()
+#     context = {
+#         "hoods": allHoods,
+#     }
+
+#     return render(request,'main/index.html', context)
 
 
 
