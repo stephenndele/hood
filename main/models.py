@@ -12,25 +12,32 @@ class Hood(models.Model):
     occupants = models.CharField(max_length=500)
     image = models.URLField(
         default='https://sharingtheglobe.files.wordpress.com/2012/02/dsc_0290.jpg')
-    admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='hoods')
+    admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='hoods', null=True)
     health_tell = models.IntegerField(null=True, blank=True)
     police_number = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.name} hood'
 
-    def create_neighborhood(self):
+    def create_hood(self):
+        self.save()
+        
+    def save_hood(self):
         self.save()
 
-    def delete_neighborhood(self):
+
+    def delete_hood(self):
         self.delete()
+
+    def update_hood(self):
+        self.update()
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile', null=True)
     name = models.CharField(max_length=80, blank=True)
     bio = models.TextField(max_length=254, blank=True)
-    profile_picture = models.ImageField(upload_to='images/', default='default.png')
+    profile_picture = models.ImageField(upload_to='images/', default='default.png', null=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     hood = models.ForeignKey(Hood, on_delete=models.SET_NULL, null=True, related_name='members', blank=True)
 
@@ -50,6 +57,7 @@ class Profile(models.Model):
     
 
     @receiver(post_save, sender=User)
+    
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
@@ -58,15 +66,16 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
-
+    def save_profile(self):
+        self.save()
 class Business(models.Model):
     name = models.CharField(max_length=120)
-    email = models.EmailField(max_length=254)
-    description = models.TextField(blank=True)
+    email = models.EmailField(max_length=254, null=True)
+    description = models.TextField(blank=True, null=True)
     image = models.URLField(
-        default='default.png')
-    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='business')
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
+        default='default.png', null=True)
+    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='business', null=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner', null=True)
 
     def __str__(self):
         return f'{self.name} Business'
