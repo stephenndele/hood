@@ -17,8 +17,9 @@ Application that allows you to be in the loop about everything happening in your
 
  ![Alt text](/media/hood.png?raw=true "Main Page")
 
+##### business Search
 
-
+ ![Alt text](/media/business.png?raw=true "Main Page")
 
  
 ## User Story  
