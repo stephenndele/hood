@@ -11,7 +11,7 @@ class Hood(models.Model):
     location = models.CharField(max_length=1000)
     occupants = models.CharField(max_length=500)
     image = models.URLField(
-        default='default.png')
+        default='https://sharingtheglobe.files.wordpress.com/2012/02/dsc_0290.jpg')
     admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='hoods')
     health_tell = models.IntegerField(null=True, blank=True)
     police_number = models.IntegerField(null=True, blank=True)
