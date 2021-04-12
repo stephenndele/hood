@@ -11,17 +11,21 @@ Application that allows you to be in the loop about everything happening in your
 ## Screenshots 
 ##### Home page
  
- ![Alt text](/media/hoodhome.png?raw=true "Main Page")
+ ![Alt text](/media/mitaa.png?raw=true "Main Page")
 
  ##### Single Hood page
 
- ![Alt text](/media/hood.png?raw=true "Main Page")
+ ![Alt text](/media/mtaa.png?raw=true "Main Page")
 
 ##### business Search
 
- ![Alt text](/media/business.png?raw=true "Main Page")
+ ![Alt text](/media/biz.png?raw=true "Main Page")
 
- 
+##### Profile page
+
+ ![Alt text](/media/profile.png?raw=true "Main Page")
+
+
 ## User Story  
 ### as a User am able to:
 * Register in the app be able to sign in  
