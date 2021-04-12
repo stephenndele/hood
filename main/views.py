@@ -65,11 +65,7 @@ def details(request, id):
     hood = Hood.objects.get(id=id)
     posts = Post.objects.filter(hood=id).order_by('-post')
     business = Business.objects.filter(hood=id)
-    
-    # Occupants = occupants.aggregate(Avg("design_rating"))["design_rating__avg"]
-    
-
-   
+        
     context = {
         "hood": hood,
         "posts":posts,
