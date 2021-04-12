@@ -10,7 +10,7 @@ from django.contrib import messages
 class HoodForm(forms.ModelForm):
     class Meta:
         model = Hood
-        fields = ('name', 'location', 'occupants', 'image', 'admin','health_tell', 'police_number' ) 
+        fields = ('name', 'location', 'image', 'admin','health_tell', 'police_number' ) 
 
         widgets = {
             'image': forms.TextInput(attrs={'placeholder': 'Add image url.... '}),
