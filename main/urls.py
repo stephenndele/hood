@@ -16,7 +16,7 @@ urlpatterns = [
     path('join_hood/<id>', views.join_hood, name='join-hood'),
     path('leave_hood/<id>', views.leave_hood, name='leave-hood'),
     path('api/hood/', views.HoodList.as_view()),
-    path('api/view_hood/', views.ViewHoodList.as_view())
-    # path('search/', views.search_business, name='search'),
+    path('api/view_hood/', views.ViewHoodList.as_view()),
+    path('search/', views.search_business, name='search'),
 
 ]

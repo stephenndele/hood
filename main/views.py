@@ -164,20 +164,26 @@ def leave_hood(request, id):
 
 
 
-# def search_business(request):
-#     if request.method == 'GET':
-#         name = request.GET.get("title")
-#         results = Business.objects.filter(name__icontains=name).all()
-#         print(results)
-#         message = f'name'
-#         params = {
-#             'results': results,
-#             'message': message
-#         }
-#         return render(request, 'results.html', params)
-#     else:
-#         message = "You haven't searched for any image category"
-#     return render(request, "results.html")
+def search_business(request):
+    
+    query = request.GET.get("name")
+
+    results = None
+    if query:
+        results = Business.objects.filter(name__icontains=query)
+
+        print(results)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'results.html', params)
+    else:
+        message = "You haven't searched for any "
+    return render(request, "main/results.html")
+
+
 
 
 class HoodList(APIView):
