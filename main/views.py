@@ -166,43 +166,26 @@ def leave_hood(request, id):
 @login_required()
 def search_business(request):
     
-    query = request.GET.get("name")
+    
 
     results = None
-    if query:
-        results = Business.objects.filter(name__icontains=query)
-
-    else:
-        results = Business.objects.all()
+    if "search_business" in request.GET and request.GET["search_business"]:
+        query = request.GET.get("search_business")
+        results = Business.search_business(query)
 
         message = f'name'
-        params = {
+        
+
+    else:
+        message = "You haven't searched for any "
+
+    params = {
             'results': results,
             'message': message
         }
+       
     return render(request, 'main/results.html', params)
 
-
-        
-    # else:
-    #     message = "You haven't searched for any "
-    # return render(request, "main/results.html")
-
-
-# def home(request):
-#     query = request.GET.get('title')    
-    
-#     allHoods = None
-#     if query:
-#         allHoods = Hood.objects.filter(title__icontains=query)
-#     else:
-
-#         allHoods = Hood.objects.all()
-#     context = {
-#         "hoods": allHoods,
-#     }
-
-#     return render(request,'main/index.html', context)
 
 
 
