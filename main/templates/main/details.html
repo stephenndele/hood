@@ -44,7 +44,7 @@
             <div class="card-body">
                     
                 <h3 class="text-center">{{hood.name}} Hood Posts/Notices</h3>
-                <button><a href="{% url 'main:post' hood.id %}">Add Post</a></button>
+                <button class="btn btn-info"><a class="text-white" href="{% url 'main:post' hood.id %}">Add Post</a></button>
                <ul>
                 {% for post in posts %}
                    <br>
