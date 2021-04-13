@@ -1,4 +1,5 @@
-# The Hood ![Alt text](/media/hoodlogo.png?raw=true "logo")
+# The Hood 
+![Alt text](/media/hoodlogo.png?raw=true "logo")
 
 
 >[Stephen-Ndele](https://github.com/stephenndele)  
