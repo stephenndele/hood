@@ -1,4 +1,3 @@
-{% include "main/messages.html" %}
 {% load static %}
 {% load bootstrap4 %}
 <!DOCTYPE html>
@@ -69,6 +68,8 @@
           </form>
         </div>
       </nav>
+      {% include "main/messages.html" %}
+
       {% block content %}
       {% endblock %}
       
