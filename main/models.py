@@ -32,6 +32,10 @@ class Hood(models.Model):
     def update_hood(self):
         self.update()
 
+    @classmethod
+    def search_hood(cls, name):
+        return cls.objects.filter(name__icontains=name).all()
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile', null=True)
@@ -95,8 +99,8 @@ class Post(models.Model):
     title = models.CharField(max_length=120, null=True)
     post = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
-    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='hood_post')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner', null=True)
+    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='hood_post', null=True)
 
     def __str__(self):
         return f'{self.name} Post'
@@ -106,3 +110,13 @@ class Post(models.Model):
 
     def delete_post(self):
         self.delete()
+
+    def save_post(self):
+        self.save()
+
+    def update_post(self):
+        self.save()
+    
+    @classmethod
+    def search_post(cls, title):
+        return cls.objects.filter(title__icontains=title).all()

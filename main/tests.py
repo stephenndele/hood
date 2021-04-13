@@ -40,6 +40,7 @@ class HoodTestClass(TestCase):
         self.hood.save_hood()
         self.hood.delete_hood()
         hoods = Hood.objects.all()
+        hood = Hood.search_hood('test')
         self.assertTrue(len(hoods) <= 0)
 
     def test_update_hood(self):
@@ -64,3 +65,30 @@ class BusinessTestClass(TestCase):
         post = Business.find_business(business_id)
         self.assertEqual(post.id,'1')
 
+class TestPost(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(username='mimi')
+        self.post = Post.objects.create(title='title', post='post', date='date')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.post, Post))
+
+    def test_save_post(self):
+        self.post.save_post()
+        post = Post.objects.all()
+        self.assertTrue(len(post) > 0)
+
+    def test_update_post(self):
+        self.post.update_post()
+        post = Post.objects.all()
+        self.assertTrue(len(post) > 0)
+
+    def test_create_posts(self):
+        self.post.save()
+        posts = Post.objects.all()
+        self.assertTrue(len(posts) > 0)
+
+    def test_delete_post(self):
+        self.post.delete_post()
+        post = Post.search_post('test')
+        self.assertTrue(len(post) < 1)
