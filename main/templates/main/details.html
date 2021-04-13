@@ -40,11 +40,10 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card" style="background-color: rgb(211, 183, 183)" >
+        <div class="card" >
             <div class="card-body">
                     
                 <h3 class="text-center">{{hood.name}} Hood Posts/Notices</h3>
-                <button class="btn btn-info"><a class="text-white" href="{% url 'main:post' hood.id %}">Add Post</a></button>
                <ul>
                 {% for post in posts %}
                    <br>
@@ -56,15 +55,16 @@
                    
                    {% endfor %}
                </ul> 
+               <button class="btn btn-info"><a class="text-white" href="{% url 'main:post' hood.id %}">Add Post</a></button>
+
             </div>
         </div>
         
     </div>
     <div class="col-md-6">
-        <div class="card" style="background-color: rgb(211, 183, 183)">
+        <div class="card" >
             <div class="card-body">
                 <h3 class="text-center"> {{ hood.name}} Busineses</h3>
-                <button class="btn btn-info"><a class="text-white" href="{% url 'main:business' hood.id %}">Add Business</a></button>
             
                <ul>
                 <br>
@@ -78,7 +78,10 @@
                     <li>Business Location: {{ biz.hood }}</li>
                    
                 {% endfor %}
+                
                </ul> 
+               <button class="btn btn-info"><a class="text-white" href="{% url 'main:business' hood.id %}">Add Business</a></button>
+
             </div>
         </div>
         
