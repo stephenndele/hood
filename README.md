@@ -12,7 +12,7 @@ Application that allows you to be in the loop about everything happening in your
 ## Screenshots 
 ##### Home page
  
- ![Alt text](/media/mitaa.png?raw=true "Main Page")
+ ![Alt text](/media/newhome.png?raw=true "Main Page")
 
  ##### Single Hood page
 
