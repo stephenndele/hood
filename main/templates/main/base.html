@@ -7,6 +7,7 @@
   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
       <!-- Bootstrap CSS -->
 {% block styles %}
 {% bootstrap_css %}
@@ -16,12 +17,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'js/main.js' %}">
+    
 {% endblock %}
+
     <title>The Hood</title>
+    <link rel="icon" href="https://seeklogo.com/images/A/AC-logo-0A9BA28B40-seeklogo.com.png">
 </head>
 <body style="background-image: url('https://images.unsplash.com/photo-1574120582683-1adf79c5dfd5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80')" style="background-repeat: no-repeat" style="font-family: 'Zilla Slab', serif;">
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3955a1;" style="color:white">
+      <img src="https://seeklogo.com/images/A/AC-logo-0A9BA28B40-seeklogo.com.png" width="45" alt="" class="d-inline-block align-middle mr-2">
         <a class="navbar-brand text-white" href="{% url 'main:home' %}">Area Code</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
