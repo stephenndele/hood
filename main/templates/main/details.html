@@ -64,9 +64,10 @@
         <div class="card" style="background-color: rgb(211, 183, 183)">
             <div class="card-body">
                 <h3 class="text-center"> {{ hood.name}} Busineses</h3>
-                <button><a href="{% url 'main:business' hood.id %}">Add Business</a></button>
+                <button class="btn btn-info"><a class="text-white" href="{% url 'main:business' hood.id %}">Add Business</a></button>
+            
                <ul>
-                   
+                <br>
                 {% for biz in business %}
                 <img  src="{{ biz.image }}" class="img-thumbnail" alt="Cinque Terre" width="260" height="236">
                 <br>
